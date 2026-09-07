@@ -1491,6 +1491,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_bcm00", code: "CL01", stage: 1,
       title: "Introduction to Building Controls & HVAC",
       est: "20 min read",
+      recapUrl: "audio/lib_bcm00-recap.mp3",
       sections: [
         { h: "Control systems: open loop vs. closed loop",
           p: "Every control system, however simple, does one of two things: it acts without checking the result, or it measures the result and adjusts. That single distinction, open loop versus closed loop, underpins almost everything else in this course.",
@@ -1648,6 +1649,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_bcm01", code: "CL02", stage: 1,
       title: "Fundamentals of HVAC & Building Technology",
       est: "28 min read",
+      recapUrl: "audio/lib_bcm01-recap.mp3",
       sections: [
         { h: "The building as more than a shell",
           p: "A controls engineer needs a working knowledge of what a building actually is before deciding how to control it: its type (office, hospital, school, factory &mdash; each with very different load and control expectations), the protective function of its shell (weather, noise, unauthorised access, economic use of energy), and the full range of services beyond just HVAC a BEMS might eventually touch &mdash; sanitary, waste, lighting, compressed air, lifts and escalators, security and access control, fire detection, and ICT.",
@@ -1757,6 +1759,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_cl03", code: "CL03", stage: 1,
       title: "Measuring and Control Technology",
       est: "26 min read",
+      recapUrl: "audio/lib_cl03-recap.mp3",
       sections: [
         { h: "Making a measurement: three things you always need",
           p: "Every measurement in HVAC comes down to three things: the measured variable (the real physical quantity, like temperature), the measuring apparatus (the sensor and its transducer), and the measured value (what the controller actually sees, usually a voltage or current).",
@@ -1865,6 +1868,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_cl04", code: "CL04", stage: 2,
       title: "Hydraulics in Building Systems",
       est: "24 min read",
+      recapUrl: "audio/lib_cl04-recap.mp3",
       sections: [
         { h: "Circuit fundamentals: mixing, diverting and throttling",
           p: "A hydraulic circuit connects a heat or cooling source to its consumers, and exists to regulate temperature and volumetric flow so control equipment can actually do its job. The quantity of heat delivered follows Q = m &times; c &times; &Delta;T &mdash; mass flow rate, specific heat capacity, and temperature differential.",
@@ -1967,6 +1971,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_cl05", code: "CL05", stage: 3,
       title: "Control Function in Heating Plant",
       est: "24 min read",
+      recapUrl: "audio/lib_cl05-recap.mp3",
       sections: [
         { h: "Boiler control basics",
           p: "A control (or switching) thermostat fires the burner as the boiler water temperature falls, and switches it off again at an upper point &mdash; the gap between the two is the switching differential, typically around 6K.",
@@ -2064,6 +2069,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_cl06", code: "CL06", stage: 3,
       title: "Control of Ventilation and Air Conditioning Plant",
       est: "30 min read",
+      recapUrl: "audio/lib_cl06-recap.mp3",
       sections: [
         { h: "The air handling unit: components and construction",
           p: "An AHU is built from dampers, filters, coils and fans, and categorised by whether it&rsquo;s constant or variable volume, 100% fresh air or mixed, single or multi-zone, single or dual duct. CIBSE Guide B recommends around 10 litres of fresh air per person per second as a baseline design figure.",
@@ -2184,6 +2190,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_cl07", code: "CL07", stage: 3,
       title: "Control of Cooling Systems",
       est: "28 min read",
+      recapUrl: "audio/lib_cl07-recap.mp3",
       sections: [
         { h: "Thermodynamics refresher, cooling-specific",
           p: "The same laws from Module 00 apply directly here: energy is conserved (First Law), and a system moves toward equilibrium over time (Second Law, entropy). The same real numbers recur throughout refrigeration work &mdash; melting 1kg of ice at 0&deg;C takes 335kJ; raising 1kg of water from 0&deg;C to 100&deg;C takes 419kJ; converting it fully to steam at 100&deg;C takes a further 2,257kJ, for a total enthalpy of 2,676kJ. Adding further heat beyond that point superheats the steam &mdash; still sensible heat, just applied to a gas rather than a liquid." },
@@ -2299,6 +2306,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       id: "lib_cl08", code: "CL08", stage: 1,
       title: "Control Sensor Selection & Installation",
       est: "14 min read",
+      recapUrl: "audio/lib_cl08-recap.mp3",
       sections: [
         { h: "Choosing the right sensor for the job",
           p: "A BEMS is only ever as good as the sensor feeding it &mdash; the wrong choice or the wrong location undermines even a perfectly engineered control strategy.",
@@ -2832,6 +2840,8 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
 
     const quiz = l.quiz ? quizHtml(l) : "";
 
+    const recap = l.recapUrl ? recapAudioHtml(l.recapUrl) : "";
+
     return `
       <div class="crumb">LEVEL 2 / ${l.code} &mdash; ${l.title}</div>
       <div class="pagehead">
@@ -2846,6 +2856,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       </div>
       <div style="height:20px"></div>
       ${sections}
+      ${recap}
       ${quiz}
       <div class="chiprow" style="margin-top:36px;">
         ${idx > 0 ? `<button class="btn" data-route="library-${LIBRARY[idx-1].id}">&larr; ${LIBRARY[idx-1].title}</button>` : `<button class="btn" data-route="home">&larr; Home</button>`}
