@@ -1647,15 +1647,19 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
             "Chilled beams cool a space by convection: passive beams rely on warm air naturally rising past the beam; active beams are assisted by a fan or duct pressure.",
             "Split air conditioning units are small, self-contained refrigeration units, often integrated into a BEMS only via a simple gateway rather than full points-level control."
           ],
-          figure: { type: "svg", caption: "A 2-pipe FCU shares one coil between heating and cooling &mdash; only one at a time. A 4-pipe FCU fits separate coils, so both are always available, at the cost of twice the pipework.", svg: `
-      <svg viewBox="0 0 600 190" role="img" aria-label="Comparison of a 2-pipe fan coil unit sharing one finned coil between heating and cooling, against a 4-pipe fan coil unit with two separate finned coils, each drawn with a fan and pipe valves" style="color:var(--text);">
+          figure: { type: "svg", caption: "A 2-pipe FCU shares one coil between heating and cooling &mdash; only one at a time. A 4-pipe FCU fits separate coils, so both are always available, at the cost of twice the pipework. Tap a panel to read more.", hotspots: [
+            { key: "twopipe", label: "2-pipe FCU", text: "Shares a single coil between heating and cooling, only one mode at a time. Simpler and cheaper, but the whole zone is stuck in whichever mode is currently selected." },
+            { key: "fourpipe", label: "4-pipe FCU", text: "Fits separate heating and cooling coils, so both are always available at the same time, at the cost of twice the pipework." }
+          ], svg: `
+      <svg viewBox="0 0 600 190" role="img" aria-label="Tappable comparison of a 2-pipe fan coil unit sharing one finned coil between heating and cooling, against a 4-pipe fan coil unit with two separate finned coils, each drawn with a fan and pipe valves" style="color:var(--text);">
         <defs>
           <marker id="fcuArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
           </marker>
         </defs>
+        <g class="diagram-hotspot" data-key="twopipe">
         <text x="150" y="22" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">2-pipe FCU</text>
-        <rect x="60" y="70" width="150" height="50" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="60" y="70" width="150" height="50" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <line x1="70" y1="75" x2="82" y2="115" stroke="currentColor" stroke-width="1" opacity="0.5"></line>
         <line x1="86" y1="75" x2="98" y2="115" stroke="currentColor" stroke-width="1" opacity="0.5"></line>
         <line x1="102" y1="75" x2="114" y2="115" stroke="currentColor" stroke-width="1" opacity="0.5"></line>
@@ -1672,9 +1676,11 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         <rect x="47" y="101" width="13" height="12" rx="2" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.2"></rect>
         <text x="14" y="118" text-anchor="end" font-size="9" fill="var(--accent-2)">cool</text>
         <text x="150" y="152" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">one mode at a time</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="fourpipe">
         <text x="450" y="22" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">4-pipe FCU</text>
-        <rect x="370" y="55" width="140" height="32" rx="4" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="370" y="55" width="140" height="32" rx="4" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"></rect>
         <line x1="378" y1="59" x2="388" y2="83" stroke="var(--accent)" stroke-width="1" opacity="0.5"></line>
         <line x1="392" y1="59" x2="402" y2="83" stroke="var(--accent)" stroke-width="1" opacity="0.5"></line>
         <line x1="406" y1="59" x2="416" y2="83" stroke="var(--accent)" stroke-width="1" opacity="0.5"></line>
@@ -1696,6 +1702,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         <line x1="330" y1="121" x2="356" y2="121" stroke="var(--accent-2)" stroke-width="4" stroke-linecap="round" marker-end="url(#fcuArrow)"></line>
         <rect x="357" y="115" width="12" height="12" rx="2" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.2"></rect>
         <text x="450" y="170" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">both always available</text>
+        </g>
       </svg>` } },
         { h: "Cooling plant: the refrigeration cycle in four steps",
           p: "Almost all mechanical cooling comes back to the same four-stage cycle, played out through four components.",
@@ -2193,42 +2200,52 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
             "Recuperators tend to ice on the exhaust duct at start-up in cold weather; the simplest fix is pre-heating the fresh air, sometimes with a bypass duct arrangement instead.",
             "Thermal wheels tend to freeze on the fresh air inlet instead, particularly with a hygroscopic moisture-recovery coating, and need a manufacturer-specified threshold temperature maintained via an air heating coil or recirculated air mixing."
           ],
-          figure: { type: "svg", caption: "Three ways to reclaim heat from exhaust air &mdash; a thermal wheel rotates between both airstreams, a recuperator exchanges heat through a fixed plate with no moving parts, and a run-around coil links two separate coils by a pumped loop, so the two airstreams need not even be near each other.", svg: `
-      <svg viewBox="0 0 640 190" role="img" aria-label="Three panels comparing a rotating thermal wheel, a fixed-plate recuperator, and a run-around coil with a pump, each shown crossed by supply and exhaust airstreams" style="color:var(--text);">
+          figure: { type: "svg", caption: "Three ways to reclaim heat from exhaust air &mdash; a thermal wheel rotates between both airstreams, a recuperator exchanges heat through a fixed plate with no moving parts, and a run-around coil links two separate coils by a pumped loop, so the two airstreams need not even be near each other. Tap a panel to read more.", hotspots: [
+            { key: "wheel", label: "Thermal Wheel", text: "A wheel matrix rotates between both airstreams, carrying heat, and often moisture, from one to the other as it turns." },
+            { key: "recuperator", label: "Recuperator", text: "A fixed plate exchanges heat between the two airstreams with no moving parts at all, and critically, the streams themselves never mix." },
+            { key: "runaround", label: "Run-around Coil", text: "Two separate coils, one in each airstream, linked by a pumped glycol loop. Because there's no direct duct connection, the two airstreams don't even need to be near each other." }
+          ], svg: `
+      <svg viewBox="0 0 640 190" role="img" aria-label="Three tappable panels comparing a rotating thermal wheel, a fixed-plate recuperator, and a run-around coil with a pump, each shown crossed by supply and exhaust airstreams" style="color:var(--text);">
         <defs>
           <marker id="heatRecArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
           </marker>
         </defs>
 
+        <g class="diagram-hotspot" data-key="wheel">
         <text x="110" y="24" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Thermal Wheel</text>
         <line x1="66" y1="70" x2="154" y2="70" stroke="currentColor" stroke-width="4" stroke-linecap="round" marker-end="url(#heatRecArrow)"></line>
         <line x1="154" y1="110" x2="66" y2="110" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" marker-end="url(#heatRecArrow)"></line>
-        <circle cx="110" cy="90" r="34" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.5"></circle>
+        <circle class="hotspot-body" cx="110" cy="90" r="34" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.5"></circle>
         <path d="M110,56 L110,124 M76,90 L144,90 M86,66 L134,114 M86,114 L134,66" stroke="var(--accent-2)" stroke-width="1" opacity="0.7"></path>
         <path d="M126,60 A34,34 0 0,1 140,90" fill="none" stroke="var(--accent-2)" stroke-width="1.6" marker-end="url(#heatRecArrow)"></path>
         <text x="110" y="150" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">rotates between both</text>
         <text x="110" y="164" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">airstreams</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="recuperator">
         <text x="320" y="24" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Recuperator</text>
         <line x1="276" y1="66" x2="364" y2="66" stroke="currentColor" stroke-width="4" stroke-linecap="round" marker-end="url(#heatRecArrow)"></line>
         <line x1="364" y1="114" x2="276" y2="114" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" marker-end="url(#heatRecArrow)"></line>
-        <rect x="285" y="56" width="70" height="68" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="285" y="56" width="70" height="68" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <path d="M290,68 L320,68 L290,80 L320,80 L290,92 L320,92 L290,104 L320,104 L290,116 L320,116" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.5"></path>
         <text x="320" y="150" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">fixed plate,</text>
         <text x="320" y="164" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">no moving parts, streams don&rsquo;t mix</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="runaround">
         <text x="530" y="24" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Run-around Coil</text>
         <line x1="455" y1="70" x2="495" y2="70" stroke="currentColor" stroke-width="4" stroke-linecap="round" marker-end="url(#heatRecArrow)"></line>
         <line x1="565" y1="110" x2="605" y2="110" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" marker-end="url(#heatRecArrow)"></line>
-        <circle cx="475" cy="90" r="20" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"></circle>
-        <circle cx="585" cy="90" r="20" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"></circle>
+        <circle class="hotspot-body" cx="475" cy="90" r="20" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"></circle>
+        <circle class="hotspot-body" cx="585" cy="90" r="20" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.5"></circle>
         <path d="M495,80 C 520,55 540,55 565,80" fill="none" stroke="var(--accent)" stroke-width="1.5"></path>
         <path d="M565,100 C 540,125 520,125 495,100" fill="none" stroke="var(--accent)" stroke-width="1.5"></path>
         <circle cx="530" cy="112" r="8" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="1.3"></circle>
         <path d="M530,112 L530,106 M530,112 L535,116 M530,112 L525,116" stroke="var(--accent)" stroke-width="1" fill="none"></path>
         <text x="530" y="150" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">linked coils + pump,</text>
         <text x="530" y="164" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">need not be adjacent</text>
+        </g>
       </svg>` } },
         { h: "Temperature control strategies",
           p: "Base loads (radiators or background heating, ventilation heat, and internal gains from people and equipment) all have to be accounted for before setting a control strategy &mdash; people alone emit both sensible and latent heat.",
@@ -2451,15 +2468,19 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
             "Outdoor sensors: avoid direct solar radiation and locations above windows, extract louvres or ventilation shafts; site outside pressure sensors somewhere sheltered with free air circulation, ideally on a flat roof fitted with a wind shield.",
             "Weather stations: mount the mast roughly 2m above the building, well clear of shading from the building itself or nearby trees."
           ],
-          figure: { type: "svg", caption: "Facing an immersion sensor into the flow, reaching the pipe&rsquo;s centreline, gives a representative reading. A shallow probe near the wall, or one that trails with the flow, mostly measures the boundary layer rather than the water itself.", svg: `
-      <svg viewBox="0 0 560 190" role="img" aria-label="Comparison of correct and incorrect immersion sensor placement in a pipe: correct placement faces into the flow and reaches the pipe centreline, incorrect placement is shallow and near the pipe wall" style="color:var(--text);">
+          figure: { type: "svg", caption: "Facing an immersion sensor into the flow, reaching the pipe&rsquo;s centreline, gives a representative reading. A shallow probe near the wall, or one that trails with the flow, mostly measures the boundary layer rather than the water itself. Tap a panel to read more.", hotspots: [
+            { key: "correct", label: "Correct", text: "Facing into the flow and reaching the pipe's centreline gives a properly representative reading of the water itself." },
+            { key: "incorrect", label: "Incorrect", text: "Shallow and close to the pipe wall mostly measures the boundary layer, not the water itself, a technically real but practically misleading reading." }
+          ], svg: `
+      <svg viewBox="0 0 560 190" role="img" aria-label="Tappable comparison of correct and incorrect immersion sensor placement in a pipe: correct placement faces into the flow and reaches the pipe centreline, incorrect placement is shallow and near the pipe wall" style="color:var(--text);">
         <defs>
           <marker id="flowArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor" opacity="0.6"></path>
           </marker>
         </defs>
+        <g class="diagram-hotspot" data-key="correct">
         <text x="140" y="20" text-anchor="middle" font-size="13" fill="var(--success)" font-weight="600">Correct &#10003;</text>
-        <rect x="40" y="70" width="200" height="60" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5" opacity="0.9"></rect>
+        <rect class="hotspot-body" x="40" y="70" width="200" height="60" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5" opacity="0.9"></rect>
         <line x1="40" y1="100" x2="240" y2="100" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"></line>
         <line x1="50" y1="100" x2="90" y2="100" stroke="currentColor" stroke-width="1.5" opacity="0.6" marker-end="url(#flowArrow)"></line>
         <text x="70" y="92" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.6">flow</text>
@@ -2467,9 +2488,11 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         <circle cx="130" cy="100" r="5" fill="var(--success)"></circle>
         <text x="140" y="160" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">faces into flow,</text>
         <text x="140" y="174" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">reaches centreline</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="incorrect">
         <text x="420" y="20" text-anchor="middle" font-size="13" fill="var(--danger)" font-weight="600">Incorrect &#10007;</text>
-        <rect x="320" y="70" width="200" height="60" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5" opacity="0.9"></rect>
+        <rect class="hotspot-body" x="320" y="70" width="200" height="60" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5" opacity="0.9"></rect>
         <line x1="320" y1="100" x2="520" y2="100" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.4"></line>
         <line x1="330" y1="100" x2="370" y2="100" stroke="currentColor" stroke-width="1.5" opacity="0.6" marker-end="url(#flowArrow)"></line>
         <text x="350" y="92" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.6">flow</text>
@@ -2477,6 +2500,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         <circle cx="420" cy="80" r="5" fill="var(--danger)"></circle>
         <text x="420" y="160" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">shallow, stays near</text>
         <text x="420" y="174" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">the pipe wall</text>
+        </g>
       </svg>` } },
         { h: "Pressure and velocity sensing detail",
           p: "Pressure tubes need a test point near the device head for calibration, and a bypass fitted with a stop valve to prevent one-sided overload while adjusting the sensor.",
