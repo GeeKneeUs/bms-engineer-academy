@@ -373,6 +373,7 @@
       cert: "Internal knowledge module &mdash; includes a scored quiz",
       est: "15 min read + quiz",
       videoUrl: "https://iocontrols.sharepoint.com/sites/Operations/Shared%20Documents/All/02.%20Training%20Platform/BEMS%20Awareness%20Training%20Course.mp4",
+      recapUrl: "audio/m1-recap.mp3",
       sections: [
         { h: "What is a Building Management System?",
           p: "A BMS is the control and monitoring system that helps a building&rsquo;s plant operate safely, efficiently and in line with the needs of the people using the building.",
@@ -547,6 +548,7 @@
       title: "Fundamentals of HVAC & Building Technology",
       cert: "Feeds into BCM01 (Industry Training Partner, 2-day assessed course &rarr; Technical Certificate)",
       est: "14 min read",
+      recapUrl: "audio/m2-recap.mp3",
       sections: [
         { h: "The building as a system",
           p: "Before you can control a building, you need to understand what you&rsquo;re controlling: the fabric, the services, and how people use the space.",
@@ -725,6 +727,7 @@
       title: "BMS Control Loops",
       cert: "Feeds into BCM00 (Industry Training Partner, instructor-led, 1 day)",
       est: "12 min read",
+      recapUrl: "audio/m0-recap.mp3",
       sections: [
         { h: "What is a control system?",
           p: "A control system is anything that takes a measurement, compares it to a target, and changes something in response. On a building, that loop runs thousands of times a day across boilers, air handling units, pumps and terminal units.",
@@ -874,6 +877,7 @@
       title: "Hydraulics in Building Services",
       cert: "Feeds into BCM03 (Industry Training Partner, assessed &mdash; completes the Technical Certificate)",
       est: "10 min read",
+      recapUrl: "audio/m4-recap.mp3",
       sections: [
         { h: "Hydraulic circuits and characteristics",
           p: "Water is an efficient way to move heat around a building &mdash; but only if the circuit is designed and controlled properly.",
@@ -973,6 +977,7 @@
       title: "Trend Systems in Practice",
       cert: "Practical companion to your Stage 1&ndash;2 site exposure and Trend e-learning",
       est: "16 min read",
+      recapUrl: "audio/m5-recap.mp3",
       sections: [
         { h: "Trend BMS components at a glance",
           p: "A Trend system, like any BMS, is built from the same core building blocks covered in Module 00 &mdash; controllers, inputs, outputs, networks and a supervisor &mdash; implemented through Trend&rsquo;s own product range.",
@@ -1123,6 +1128,7 @@
       title: "Distech & Niagara N4 in Practice",
       cert: "Feeds into your Niagara N4 Certification (Stage 2) and Distech VT3002 Eclypse Certification (Stage 3)",
       est: "12 min read",
+      recapUrl: "audio/m9-recap.mp3",
       sections: [
         { h: "Distech and Niagara N4, in context",
           p: "Distech builds its controllers on the Niagara framework, so a Distech-based BMS speaks the same underlying Niagara N4 language as other open Niagara installations, not just Distech&rsquo;s own. That&rsquo;s why your pathway includes a standalone Niagara N4 Certification alongside the Distech-specific Eclypse course, rather than treating them as one and the same.",
@@ -1193,6 +1199,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       title: "Control of Heating Plants",
       cert: "Feeds into BCM04 (Industry Training Partner, assessed, advanced)",
       est: "11 min read",
+      recapUrl: "audio/m6-recap.mp3",
       sections: [
         { h: "Control of a single heating boiler",
           p: "",
@@ -1274,6 +1281,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       title: "Control of Ventilation & Air Conditioning",
       cert: "Feeds into BCM05 (Industry Training Partner, assessed, advanced)",
       est: "14 min read",
+      recapUrl: "audio/m7-recap.mp3",
       sections: [
         { h: "Temperature control in ventilation plant",
           p: "",
@@ -1375,6 +1383,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       title: "Refrigeration Technology",
       cert: "Feeds into BCM06 (Industry Training Partner, assessed &mdash; completes the Advanced Technical Certificate)",
       est: "11 min read",
+      recapUrl: "audio/m8-recap.mp3",
       sections: [
         { h: "Fundamentals of thermodynamics and refrigerants",
           p: "Refrigeration is really just moving heat from somewhere you don&rsquo;t want it to somewhere you don&rsquo;t mind it, using the physical properties of a refrigerant that change state &mdash; liquid to gas and back &mdash; at usable temperatures and pressures." },
@@ -2723,13 +2732,10 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
           <span class="recap-box-icon">&#9658;</span>
           <div>
             <strong>Recap this module</strong>
-            <span>A 30&ndash;60 second audio summary of the key points above &mdash; A/B testing voices, temporary.</span>
+            <span>A 30&ndash;60 second audio summary of the key points above.</span>
           </div>
         </div>
-        <span style="font-size:12.5px;font-weight:600;display:block;margin-bottom:4px;">Option A &mdash; Ryan (male)</span>
-        <audio controls preload="none" src="audio/m3-recap.mp3" style="margin-bottom:14px;"></audio>
-        <span style="font-size:12.5px;font-weight:600;display:block;margin-bottom:4px;">Option B &mdash; Sonia (female)</span>
-        <audio controls preload="none" src="audio/m3-recap-sonia.mp3"></audio>
+        <audio controls preload="none" src="${url}"></audio>
       </div>`;
   }
 
