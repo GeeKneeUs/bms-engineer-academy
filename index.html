@@ -2723,10 +2723,13 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
           <span class="recap-box-icon">&#9658;</span>
           <div>
             <strong>Recap this module</strong>
-            <span>A 30&ndash;60 second audio summary of the key points above.</span>
+            <span>A 30&ndash;60 second audio summary of the key points above &mdash; A/B testing voices, temporary.</span>
           </div>
         </div>
-        <audio controls preload="none" src="${url}"></audio>
+        <span style="font-size:12.5px;font-weight:600;display:block;margin-bottom:4px;">Option A &mdash; Ryan (male)</span>
+        <audio controls preload="none" src="audio/m3-recap.mp3" style="margin-bottom:14px;"></audio>
+        <span style="font-size:12.5px;font-weight:600;display:block;margin-bottom:4px;">Option B &mdash; Sonia (female)</span>
+        <audio controls preload="none" src="audio/m3-recap-sonia.mp3"></audio>
       </div>`;
   }
 
