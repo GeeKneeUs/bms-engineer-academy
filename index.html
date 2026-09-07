@@ -2375,17 +2375,29 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
     stages: [
       { name: "Foundation", months: "Months 1&ndash;6", tasks: 72,
         summary: "Induction, H&amp;S, Trend foundation e-learning, BCM01 &amp; BCM02, and Stage 1 site exposure &mdash; network identification, plant identification, panel basics, operator-level use of Trend 963 / IQVISION / SET.",
-        cats: [["Induction",4],["H&S",19],["Trend",6],["Industry Training",3],["Site Exposure",32],["Mentoring",2],["JD tasks",4],["Review",1]],
+        cats: [["Induction",4],["H&S",19],["Trend",6],["Industry Training",4],["Site Exposure",32],["Mentoring",2],["JD tasks",4],["Review",1]],
         cred: "Milestone: Technical Certificate (Industry Training Partner) after BCM01&ndash;03 (Month 9)" },
       { name: "Intermediate", months: "Months 7&ndash;12", tasks: 52,
         summary: "Trend instructor-led engineering (IQVISION, IQ SET with exam), IQ Eco, IQ Interfacing, IQX, Honeywell Optimizer, Niagara N4 Certification, BCM03 &amp; BCM12, and deeper site exposure &mdash; network addressing, plant control principles, panel fault finding.",
-        cats: [["Trend",8],["Tridium",1],["Industry Training",2],["Site Exposure",34],["JD tasks",4],["Mentoring",1],["Review",1]],
+        cats: [["Trend",8],["Tridium",1],["Industry Training",2],["Site Exposure",34],["JD tasks",5],["Mentoring",1],["Review",1]],
         cred: "Milestone: Niagara 4 Certified Technical Programmer (Month 11)" },
       { name: "Advanced", months: "Months 13&ndash;18", tasks: 42,
         summary: "Trend advanced (Advanced Controller, IQ5, N4 Analytics, Trend Expert, Cyber Security, KNX, RBM), Distech (Academy + VT3002 + Eclypse Facilities), BCM04&ndash;06, BCM10 &amp; BCM13, and independent-level site exposure &mdash; LAN fault finding, panel modifications, controller replacement.",
         cats: [["Trend",10],["Distech",3],["Industry Training",5],["Site Exposure",18],["JD tasks",4],["Review",2]],
         cred: "Milestone: Advanced Technical Certificate (Industry Training Partner) + final pathway sign-off (Month 17&ndash;18)" }
     ],
+    continuous: {
+      tasks: 6,
+      summary: "Not tied to a single stage or month &mdash; these run throughout the full 18 months alongside whichever stage you're in.",
+      items: [
+        "Follow company H&amp;S procedures and safe systems of work at all times, refreshed as new sites are added.",
+        "Adhere to the IO Controls Quality Management System on all visits, reports and work outputs.",
+        "Build and maintain strong working relationships with customers, site teams and subcontractors.",
+        "Mentor updates the Trainee Assessment Form on a rolling basis after each significant site visit or training event.",
+        "Trainee owns and maintains a personal development plan, reviewed monthly with the mentor.",
+        "Stay current with company engineering tools, ticketing, time-recording and reporting platforms."
+      ]
+    },
     milestones: [
       { m: "M9", t: "Technical Certificate + Trend IQ SET pass" },
       { m: "M11", t: "Niagara N4 Certified Technical Programmer" },
@@ -2396,6 +2408,9 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
   };
 
   const RESOURCES = [
+    { name: "Trainee Development Pathway Tracker (Excel)", tag: "Live tracker",
+      desc: "The real task-by-task tracker behind the Pathway page on this site &mdash; all 172 tasks with status, owner and sign-off, including the 6 ongoing tasks that run throughout. This is where you and your mentor actually check items off.",
+      url: "https://iocontrols.sharepoint.com/:x:/r/sites/Operations/_layouts/15/Doc.aspx?sourcedoc=%7B0866EF14-F077-4178-8F9C-20E9E80413A5%7D&file=Trainee%20Improver%20BMS%20Engineer%20-%20Development%20Pathway%20ver%20001.xlsx&action=default&mobileredirect=true" },
     { name: "BEMS Awareness Training Course &mdash; video", tag: "Our content",
       desc: "The recorded video companion to Module 00&rsquo;s introduction &mdash; watch it alongside or instead of reading the module.",
       url: "https://iocontrols.sharepoint.com/sites/Operations/Shared%20Documents/All/02.%20Training%20Platform/BEMS%20Awareness%20Training%20Course.mp4" },
@@ -2657,6 +2672,12 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       <div class="stage-row" style="margin-top:26px;">${stageCards}</div>
 
       <section class="block">
+        <div class="sechead"><h3>Also tracked throughout &mdash; ${PATHWAY.continuous.tasks} ongoing tasks</h3></div>
+        <p>${PATHWAY.continuous.summary}</p>
+        <ul>${PATHWAY.continuous.items.map(t => `<li>${t}</li>`).join("")}</ul>
+      </section>
+
+      <section class="block">
         <div class="sechead"><h3>Key credential milestones</h3></div>
         <div class="timeline">
           <div class="line"></div>
@@ -2664,7 +2685,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         </div>
       </section>
 
-      <div class="note-box">The full day-by-day task list &mdash; assignment, sign-off and status &mdash; lives in the Development Pathway tracker (Planner / SharePoint list). This page is the map; that tracker is where you and your mentor check items off.</div>
+      <div class="note-box">The full day-by-day task list &mdash; assignment, sign-off and status for all 172 tasks &mdash; lives in the <a href="https://iocontrols.sharepoint.com/:x:/r/sites/Operations/_layouts/15/Doc.aspx?sourcedoc=%7B0866EF14-F077-4178-8F9C-20E9E80413A5%7D&file=Trainee%20Improver%20BMS%20Engineer%20-%20Development%20Pathway%20ver%20001.xlsx&action=default&mobileredirect=true" target="_blank" rel="noopener">Development Pathway tracker</a> (also on the Resources page). This page is the map; that tracker is where you and your mentor check items off.</div>
     `;
   }
 
