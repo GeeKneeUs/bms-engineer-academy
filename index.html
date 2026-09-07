@@ -221,14 +221,25 @@
   figure.diagram svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
   figure.diagram img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 6px; }
   figure.diagram figcaption { margin-top: 12px; font-size: 12.5px; color: var(--text-muted); max-width: 66ch; }
+  .diagram-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--accent-2); margin-bottom: 12px;
+  }
+  .diagram-badge::before { content: "\25C9"; font-size: 10px; }
   .diagram-hotspot { cursor: pointer; }
+  .diagram-hotspot .hotspot-body { stroke-dasharray: 5 3; }
   .diagram-hotspot:hover { opacity: 0.72; }
   .diagram-callout {
-    margin-top: 10px; padding: 10px 14px;
-    background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
-    font-size: 13px; color: var(--text-muted); max-width: 66ch;
+    margin-top: 14px; padding: 14px 18px;
+    background: color-mix(in srgb, var(--accent-2) 8%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent-2) 35%, var(--border));
+    border-left: 4px solid var(--accent-2);
+    border-radius: 8px;
+    font-size: 14px; color: var(--text); max-width: 66ch;
   }
-  .diagram-callout strong { color: var(--text); }
+  .diagram-callout.is-placeholder { color: var(--text-muted); font-style: italic; }
+  .diagram-callout strong { color: var(--accent-2); }
 
   .home-hero { display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 8px; }
   .home-hero .lede { flex: 1 1 420px; }
@@ -1417,7 +1428,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
           </marker>
         </defs>
         <g class="diagram-hotspot" data-key="condenser">
-        <rect x="60" y="20" width="150" height="50" rx="6" fill="none" stroke="var(--accent)" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="60" y="20" width="150" height="50" rx="6" fill="none" stroke="var(--accent)" stroke-width="1.5"></rect>
         <line x1="70" y1="28" x2="70" y2="46" stroke="var(--accent)" stroke-width="1" opacity="0.6"></line>
         <line x1="78" y1="28" x2="78" y2="46" stroke="var(--accent)" stroke-width="1" opacity="0.6"></line>
         <line x1="86" y1="28" x2="86" y2="46" stroke="var(--accent)" stroke-width="1" opacity="0.6"></line>
@@ -1429,14 +1440,14 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         </g>
 
         <g class="diagram-hotspot" data-key="expvalve">
-        <path d="M310,45 L365,25 L365,65 Z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-        <path d="M420,45 L365,25 L365,65 Z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+        <path class="hotspot-body" d="M310,45 L365,25 L365,65 Z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+        <path class="hotspot-body" d="M420,45 L365,25 L365,65 Z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
         <text x="365" y="68" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">drops pressure</text>
         <text x="365" y="35" text-anchor="middle" font-size="11" fill="currentColor">Exp. Valve</text>
         </g>
 
         <g class="diagram-hotspot" data-key="compressor">
-        <ellipse cx="365" cy="255" rx="42" ry="22" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></ellipse>
+        <ellipse class="hotspot-body" cx="365" cy="255" rx="42" ry="22" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></ellipse>
         <rect x="350" y="228" width="30" height="16" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.3"></rect>
         <circle cx="365" cy="255" r="6" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
         <text x="365" y="286" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">raises pressure</text>
@@ -1444,7 +1455,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         </g>
 
         <g class="diagram-hotspot" data-key="evaporator">
-        <rect x="60" y="230" width="150" height="50" rx="6" fill="none" stroke="var(--accent-2)" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="60" y="230" width="150" height="50" rx="6" fill="none" stroke="var(--accent-2)" stroke-width="1.5"></rect>
         <line x1="70" y1="238" x2="70" y2="256" stroke="var(--accent-2)" stroke-width="1" opacity="0.6"></line>
         <line x1="78" y1="238" x2="78" y2="256" stroke="var(--accent-2)" stroke-width="1" opacity="0.6"></line>
         <line x1="86" y1="238" x2="86" y2="256" stroke="var(--accent-2)" stroke-width="1" opacity="0.6"></line>
@@ -2750,8 +2761,9 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       ? fig.svg
       : `<img src="${fig.src}" alt="${fig.caption.replace(/"/g, "&quot;")}" loading="lazy">`;
     const hotspotsAttr = fig.hotspots ? ` data-hotspots='${JSON.stringify(fig.hotspots).replace(/'/g, "&#39;")}'` : "";
-    const callout = fig.hotspots ? `<div class="diagram-callout">Tap a labelled part of the diagram above to see what it does.</div>` : "";
-    return `<figure class="diagram"${hotspotsAttr}>${media}<figcaption>${fig.caption}</figcaption>${callout}</figure>`;
+    const badge = fig.hotspots ? `<div class="diagram-badge">Interactive &mdash; tap a labelled part below</div>` : "";
+    const callout = fig.hotspots ? `<div class="diagram-callout is-placeholder">Tap a labelled part of the diagram above to see what it does.</div>` : "";
+    return `<figure class="diagram"${hotspotsAttr}>${badge}${media}<figcaption>${fig.caption}</figcaption>${callout}</figure>`;
   }
 
   function wireDiagramHotspots() {
@@ -2763,7 +2775,11 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         try { hotspots = JSON.parse((figure.dataset.hotspots || "[]").replace(/&#39;/g, "'")); } catch (e) {}
         const hs = hotspots.find(h => h.key === el.dataset.key);
         const callout = figure.querySelector(".diagram-callout");
-        if (hs && callout) callout.innerHTML = `<strong>${hs.label}:</strong> ${hs.text}`;
+        if (hs && callout) {
+          callout.classList.remove("is-placeholder");
+          callout.innerHTML = `<strong>${hs.label}:</strong> ${hs.text}`;
+          callout.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }
       });
     });
   }
