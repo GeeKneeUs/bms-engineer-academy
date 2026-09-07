@@ -181,6 +181,23 @@
   .video-callout-body span { font-size: 13px; color: var(--text-muted); }
   .video-callout-cta { flex: none; font-weight: 600; color: var(--accent-2); font-size: 13.5px; white-space: nowrap; }
 
+  .recap-box {
+    margin: 30px 0 6px;
+    padding: 16px 20px;
+    background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+    border-radius: var(--radius);
+  }
+  .recap-box-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .recap-box-icon {
+    flex: none; width: 32px; height: 32px; border-radius: 50%;
+    background: var(--accent); color: var(--accent-ink);
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  .recap-box strong { font-size: 15px; }
+  .recap-box span { font-size: 13px; color: var(--text-muted); display: block; margin-top: 1px; }
+  .recap-box audio { width: 100%; margin-top: 4px; }
+
   section.block { margin-bottom: 30px; }
   .sechead { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
   .sechead .n { font-family: 'IBM Plex Mono'; font-size: 12px; color: var(--accent); }
@@ -633,6 +650,7 @@
       title: "Measuring & Control Technology",
       cert: "Feeds into BCM02 (Industry Training Partner, 3-day assessed course)",
       est: "12 min read",
+      recapUrl: "audio/m3-recap.mp3",
       sections: [
         { h: "Fundamentals of measurement",
           p: "Every control decision starts with a measurement, so the accuracy and reliability of that measurement matters as much as the logic that acts on it.",
@@ -2698,6 +2716,20 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       </a>`;
   }
 
+  function recapAudioHtml(url) {
+    return `
+      <div class="recap-box">
+        <div class="recap-box-head">
+          <span class="recap-box-icon">&#9658;</span>
+          <div>
+            <strong>Recap this module</strong>
+            <span>A 30&ndash;60 second audio summary of the key points above.</span>
+          </div>
+        </div>
+        <audio controls preload="none" src="${url}"></audio>
+      </div>`;
+  }
+
   function moduleHtml(m) {
     const done = !!progress.modules[m.id];
     const idx = MODULES.findIndex(x => x.id === m.id);
@@ -2715,6 +2747,8 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
 
     const videoCallout = m.videoUrl ? videoCalloutHtml(m.videoUrl) : "";
 
+    const recap = m.recapUrl ? recapAudioHtml(m.recapUrl) : "";
+
     return `
       <div class="crumb">LEVEL 1 / ${m.num} &mdash; ${m.title}</div>
       <div class="pagehead">
@@ -2730,6 +2764,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       ${videoCallout}
       <div style="height:20px"></div>
       ${sections}
+      ${recap}
       ${quiz}
       <div class="chiprow" style="margin-top:36px;">
         ${idx > 0 ? `<button class="btn" data-route="module-${MODULES[idx-1].id}">&larr; ${MODULES[idx-1].title}</button>` : ""}
