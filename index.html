@@ -583,16 +583,21 @@
             "Temperature, humidity and airflow together determine whether a space actually feels comfortable, not any one of them alone.",
             "Thermal stratification &mdash; warm air collecting near the ceiling &mdash; is a common problem in tall or open spaces, and needs deliberate air movement or control strategy to manage."
           ],
-          figure: { type: "svg", caption: "The three ways heat moves &mdash; conduction needs contact, convection needs a moving fluid, radiation needs neither. Most real heat loss from a building is a mix of all three at once.", svg: `
-      <svg viewBox="0 0 640 200" role="img" aria-label="Three panels comparing conduction through a wall, convection from a radiator, and radiation from a hot surface" style="color:var(--text);">
+          figure: { type: "svg", caption: "The three ways heat moves &mdash; conduction needs contact, convection needs a moving fluid, radiation needs neither. Most real heat loss from a building is a mix of all three at once. Tap a panel to read more.", hotspots: [
+            { key: "conduction", label: "Conduction", text: "Heat passing particle to particle through a material that's actually in contact, like through a solid wall. Good and poor conductors differ hugely, which is exactly why insulation is chosen specifically because it conducts badly." },
+            { key: "convection", label: "Convection", text: "Needs a moving fluid. Warm air off a hot surface like a radiator rises, cools, and falls back down, carrying heat around the room as it goes." },
+            { key: "radiation", label: "Radiation", text: "Needs no medium at all. It travels in straight lines like light, which is why you can feel a radiator's warmth before the air around you has actually changed temperature." }
+          ], svg: `
+      <svg viewBox="0 0 640 200" role="img" aria-label="Three tappable panels comparing conduction through a wall, convection from a radiator, and radiation from a hot surface" style="color:var(--text);">
         <defs>
           <marker id="heatArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
           </marker>
         </defs>
 
+        <g class="diagram-hotspot" data-key="conduction">
         <text x="110" y="24" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Conduction</text>
-        <rect x="94" y="55" width="32" height="80" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="94" y="55" width="32" height="80" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <line x1="94" y1="70" x2="126" y2="70" stroke="currentColor" stroke-width="1" opacity="0.5"></line>
         <line x1="94" y1="85" x2="126" y2="85" stroke="currentColor" stroke-width="1" opacity="0.5"></line>
         <line x1="94" y1="100" x2="126" y2="100" stroke="currentColor" stroke-width="1" opacity="0.5"></line>
@@ -605,10 +610,12 @@
         <text x="60" y="150" text-anchor="middle" font-size="9.5" fill="var(--accent)">warm side</text>
         <text x="160" y="150" text-anchor="middle" font-size="9.5" fill="var(--accent-2)">cool side</text>
         <text x="110" y="168" text-anchor="middle" font-size="9.5" fill="currentColor" opacity="0.7">particle to particle through the wall</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="convection">
         <text x="320" y="24" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Convection</text>
         <line x1="270" y1="135" x2="370" y2="135" stroke="currentColor" stroke-width="1.5" opacity="0.5"></line>
-        <rect x="278" y="100" width="14" height="35" rx="2" fill="var(--accent)" stroke="currentColor" stroke-width="1"></rect>
+        <rect class="hotspot-body" x="278" y="100" width="14" height="35" rx="2" fill="var(--accent)" stroke="currentColor" stroke-width="1"></rect>
         <line x1="281" y1="104" x2="281" y2="131" stroke="currentColor" stroke-width="0.8" opacity="0.4"></line>
         <line x1="285" y1="104" x2="285" y2="131" stroke="currentColor" stroke-width="0.8" opacity="0.4"></line>
         <line x1="289" y1="104" x2="289" y2="131" stroke="currentColor" stroke-width="0.8" opacity="0.4"></line>
@@ -616,15 +623,18 @@
         <path d="M338,60 C355,70 362,100 360,132" fill="none" stroke="var(--accent-2)" stroke-width="1.5" marker-end="url(#heatArrow)"></path>
         <text x="320" y="150" text-anchor="middle" font-size="9.5" fill="currentColor" opacity="0.7">warm air rises off the radiator,</text>
         <text x="320" y="164" text-anchor="middle" font-size="9.5" fill="currentColor" opacity="0.7">cools and falls back down</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="radiation">
         <text x="530" y="24" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Radiation</text>
-        <rect x="480" y="70" width="16" height="55" rx="2" fill="var(--accent)" stroke="currentColor" stroke-width="1"></rect>
+        <rect class="hotspot-body" x="480" y="70" width="16" height="55" rx="2" fill="var(--accent)" stroke="currentColor" stroke-width="1"></rect>
         <path d="M502,78 Q512,80 522,78 Q532,76 542,78" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#heatArrow)"></path>
         <path d="M502,97 Q514,99 526,97 Q538,95 550,97" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#heatArrow)"></path>
         <path d="M502,116 Q512,118 522,116 Q532,114 542,116" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#heatArrow)"></path>
         <circle cx="595" cy="97" r="11" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
         <text x="530" y="150" text-anchor="middle" font-size="9.5" fill="currentColor" opacity="0.7">travels in straight (wavy) lines,</text>
         <text x="530" y="164" text-anchor="middle" font-size="9.5" fill="currentColor" opacity="0.7">warms you before the air changes</text>
+        </g>
       </svg>` } },
         { h: "Ventilation and air conditioning, in more depth",
           p: "Building on the basics, this looks at how air systems are actually put together to deliver comfort efficiently.",
@@ -755,25 +765,37 @@
             "Closed loop control measures the result and adjusts continuously &mdash; a room thermostat driving a valve.",
             "Most building services controls are closed loop, because comfort and efficiency depend on responding to real conditions, not just a fixed schedule."
           ],
-          figure: { type: "svg", caption: "A closed control loop: the controller compares the setpoint against what the sensor actually measures, and keeps adjusting the valve actuator until the two agree &mdash; the feedback path is what makes it &ldquo;closed loop&rdquo; rather than open loop.", svg: `
-      <svg viewBox="0 0 640 220" role="img" aria-label="Diagram of a closed control loop drawn as real hardware: a setpoint dial compared against a measured value drives a controller, which drives a valve actuator feeding a radiator, whose heat output is measured by a wall sensor feeding back into the comparison" style="color:var(--text);">
+          figure: { type: "svg", caption: "A closed control loop: the controller compares the setpoint against what the sensor actually measures, and keeps adjusting the valve actuator until the two agree &mdash; the feedback path is what makes it &ldquo;closed loop&rdquo; rather than open loop. Tap a part to read more.", hotspots: [
+            { key: "setpoint", label: "Setpoint", text: "The target condition you actually want, dialled in by whoever's using the system." },
+            { key: "compare", label: "Compare (&Delta;)", text: "Works out the gap between the setpoint and what the sensor is actually measuring right now." },
+            { key: "controller", label: "Controller", text: "Reads that gap and decides what to do about it, using whatever control logic is programmed in." },
+            { key: "valve", label: "Valve", text: "Turns the controller's decision into an actual physical change, opening or closing to adjust flow." },
+            { key: "radiator", label: "Radiator", text: "The plant itself &mdash; here a radiator &mdash; whose output is what's actually being controlled." },
+            { key: "sensor", label: "Sensor", text: "Measures the real result, room temperature here, and feeds it back into the comparison. This feedback path is exactly what makes it a closed loop." }
+          ], svg: `
+      <svg viewBox="0 0 640 220" role="img" aria-label="Tappable diagram of a closed control loop drawn as real hardware: a setpoint dial compared against a measured value drives a controller, which drives a valve actuator feeding a radiator, whose heat output is measured by a wall sensor feeding back into the comparison" style="color:var(--text);">
         <defs>
           <marker id="loopArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
           </marker>
         </defs>
 
-        <circle cx="55" cy="40" r="20" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></circle>
+        <g class="diagram-hotspot" data-key="setpoint">
+        <circle class="hotspot-body" cx="55" cy="40" r="20" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></circle>
         <line x1="55" y1="40" x2="64" y2="26" stroke="currentColor" stroke-width="2"></line>
         <circle cx="55" cy="40" r="2.2" fill="currentColor"></circle>
         <text x="55" y="74" text-anchor="middle" font-size="10.5" fill="currentColor">Setpoint</text>
+        </g>
         <line x1="75" y1="40" x2="119" y2="40" stroke="currentColor" stroke-width="1.5" marker-end="url(#loopArrow)"></line>
 
-        <circle cx="143" cy="40" r="20" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+        <g class="diagram-hotspot" data-key="compare">
+        <circle class="hotspot-body" cx="143" cy="40" r="20" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
         <text x="143" y="46" text-anchor="middle" font-size="14" fill="currentColor">&Delta;</text>
+        </g>
         <line x1="163" y1="40" x2="207" y2="40" stroke="currentColor" stroke-width="1.5" marker-end="url(#loopArrow)"></line>
 
-        <rect x="211" y="20" width="66" height="40" rx="5" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <g class="diagram-hotspot" data-key="controller">
+        <rect class="hotspot-body" x="211" y="20" width="66" height="40" rx="5" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <line x1="223" y1="20" x2="223" y2="13" stroke="currentColor" stroke-width="1.2"></line>
         <line x1="238" y1="20" x2="238" y2="13" stroke="currentColor" stroke-width="1.2"></line>
         <line x1="253" y1="20" x2="253" y2="13" stroke="currentColor" stroke-width="1.2"></line>
@@ -783,15 +805,19 @@
         <line x1="253" y1="60" x2="253" y2="67" stroke="currentColor" stroke-width="1.2"></line>
         <line x1="265" y1="60" x2="265" y2="67" stroke="currentColor" stroke-width="1.2"></line>
         <text x="244" y="44" text-anchor="middle" font-size="9.5" fill="currentColor">Controller</text>
+        </g>
         <line x1="277" y1="40" x2="323" y2="40" stroke="currentColor" stroke-width="1.5" marker-end="url(#loopArrow)"></line>
 
-        <rect x="327" y="30" width="28" height="20" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <g class="diagram-hotspot" data-key="valve">
+        <rect class="hotspot-body" x="327" y="30" width="28" height="20" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <rect x="330" y="8" width="22" height="17" rx="3" fill="var(--accent)" stroke="currentColor" stroke-width="1.2"></rect>
         <line x1="341" y1="25" x2="341" y2="30" stroke="currentColor" stroke-width="2"></line>
         <text x="341" y="68" text-anchor="middle" font-size="10.5" fill="currentColor">Valve</text>
+        </g>
         <line x1="355" y1="40" x2="401" y2="40" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" marker-end="url(#loopArrow)"></line>
 
-        <rect x="405" y="22" width="76" height="36" rx="3" fill="none" stroke="var(--accent-2)" stroke-width="1.5"></rect>
+        <g class="diagram-hotspot" data-key="radiator">
+        <rect class="hotspot-body" x="405" y="22" width="76" height="36" rx="3" fill="none" stroke="var(--accent-2)" stroke-width="1.5"></rect>
         <line x1="415" y1="26" x2="415" y2="54" stroke="var(--accent-2)" stroke-width="1.2" opacity="0.6"></line>
         <line x1="427" y1="26" x2="427" y2="54" stroke="var(--accent-2)" stroke-width="1.2" opacity="0.6"></line>
         <line x1="439" y1="26" x2="439" y2="54" stroke="var(--accent-2)" stroke-width="1.2" opacity="0.6"></line>
@@ -799,10 +825,13 @@
         <line x1="463" y1="26" x2="463" y2="54" stroke="var(--accent-2)" stroke-width="1.2" opacity="0.6"></line>
         <line x1="471" y1="26" x2="471" y2="54" stroke="var(--accent-2)" stroke-width="1.2" opacity="0.6"></line>
         <text x="443" y="72" text-anchor="middle" font-size="10.5" fill="var(--accent-2)">Radiator</text>
+        </g>
 
-        <rect x="558" y="140" width="36" height="36" rx="7" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <g class="diagram-hotspot" data-key="sensor">
+        <rect class="hotspot-body" x="558" y="140" width="36" height="36" rx="7" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <circle cx="576" cy="158" r="4.5" fill="var(--accent-2)"></circle>
         <text x="576" y="192" text-anchor="middle" font-size="10.5" fill="currentColor">Sensor</text>
+        </g>
         <path d="M576,140 C576,90 576,90 500,58" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#loopArrow)"></path>
         <text x="560" y="105" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">measures room temp</text>
 
@@ -912,8 +941,12 @@
             "Valve authority &mdash; how much of the total pressure drop the valve itself controls &mdash; determines whether a valve can actually do its job properly across its full range.",
             "Actuators, electric or pneumatic, turn a control signal into valve movement, and their speed and precision affect how well the loop performs."
           ],
-          figure: { type: "svg", caption: "Three different jobs, three different valve arrangements &mdash; mixing and diverting both keep total flow constant using a 3-port valve, while throttling varies the flow itself directly with a 2-port valve. Warm supply in red, cooler return in teal.", svg: `
-      <svg viewBox="0 0 640 240" role="img" aria-label="Three panels comparing mixing, diverting and throttling valve circuits, drawn as valve bodies with actuators on top rather than abstract shapes" style="color:var(--text);">
+          figure: { type: "svg", caption: "Three different jobs, three different valve arrangements &mdash; mixing and diverting both keep total flow constant using a 3-port valve, while throttling varies the flow itself directly with a 2-port valve. Warm supply in red, cooler return in teal. Tap a panel to read more.", hotspots: [
+            { key: "mixing", label: "Mixing", text: "A 3-port valve blends two inlet streams (warm supply and cooler return) into one constant output &mdash; common on radiator circuits, low-temperature sources like heat pumps and solar, and chilled beam control." },
+            { key: "diverting", label: "Diverting", text: "A 3-port valve splits one constant inlet into two variable outputs, a load path and a bypass, common on older constant-flow systems." },
+            { key: "throttling", label: "Throttling", text: "A 2-port valve restricts the flow itself directly, which is exactly what makes it compatible with variable speed pump technology matching flow to load." }
+          ], svg: `
+      <svg viewBox="0 0 640 240" role="img" aria-label="Three tappable panels comparing mixing, diverting and throttling valve circuits, drawn as valve bodies with actuators on top rather than abstract shapes" style="color:var(--text);">
         <defs>
           <marker id="valveArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
@@ -926,20 +959,23 @@
           </marker>
         </defs>
 
+        <g class="diagram-hotspot" data-key="mixing">
         <text x="105" y="20" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Mixing</text>
         <line x1="18" y1="58" x2="86" y2="90" stroke="var(--accent)" stroke-width="6" stroke-linecap="round" marker-end="url(#valveArrowHot)"></line>
         <line x1="18" y1="128" x2="86" y2="104" stroke="var(--accent-2)" stroke-width="6" stroke-linecap="round" marker-end="url(#valveArrowCold)"></line>
-        <rect x="90" y="87" width="30" height="20" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="90" y="87" width="30" height="20" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <rect x="93" y="62" width="24" height="17" rx="3" fill="var(--accent)" stroke="currentColor" stroke-width="1.2"></rect>
         <line x1="105" y1="79" x2="105" y2="87" stroke="currentColor" stroke-width="2.5"></line>
         <line x1="123" y1="97" x2="182" y2="97" stroke="currentColor" stroke-width="6" stroke-linecap="round" marker-end="url(#valveArrow)"></line>
         <text x="152" y="87" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.8">constant</text>
         <text x="105" y="160" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">2 inputs blend to</text>
         <text x="105" y="174" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">1 constant output</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="diverting">
         <text x="320" y="20" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Diverting</text>
         <line x1="233" y1="97" x2="300" y2="97" stroke="currentColor" stroke-width="6" stroke-linecap="round" marker-end="url(#valveArrow)"></line>
-        <rect x="305" y="87" width="30" height="20" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <rect class="hotspot-body" x="305" y="87" width="30" height="20" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <rect x="308" y="62" width="24" height="17" rx="3" fill="var(--accent)" stroke="currentColor" stroke-width="1.2"></rect>
         <line x1="320" y1="79" x2="320" y2="87" stroke="currentColor" stroke-width="2.5"></line>
         <line x1="338" y1="93" x2="398" y2="60" stroke="var(--accent-2)" stroke-width="6" stroke-linecap="round" marker-end="url(#valveArrowCold)"></line>
@@ -948,10 +984,12 @@
         <text x="403" y="137" text-anchor="start" font-size="9" fill="var(--accent-2)">bypass</text>
         <text x="320" y="160" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">1 input splits into</text>
         <text x="320" y="174" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">2 variable outputs</text>
+        </g>
 
+        <g class="diagram-hotspot" data-key="throttling">
         <text x="535" y="20" text-anchor="middle" font-size="13" fill="currentColor" font-weight="600">Throttling</text>
         <line x1="448" y1="97" x2="513" y2="97" stroke="currentColor" stroke-width="6" stroke-linecap="round" marker-end="url(#valveArrow)"></line>
-        <path d="M517,87 Q536,87 536,97 Q536,107 517,107 Z" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></path>
+        <path class="hotspot-body" d="M517,87 Q536,87 536,97 Q536,107 517,107 Z" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></path>
         <path d="M523,90 L531,97 L523,104" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.7"></path>
         <rect x="514" y="62" width="24" height="17" rx="3" fill="var(--accent)" stroke="currentColor" stroke-width="1.2"></rect>
         <line x1="526" y1="79" x2="526" y2="88" stroke="currentColor" stroke-width="2.5"></line>
@@ -959,6 +997,7 @@
         <text x="568" y="87" text-anchor="middle" font-size="9" fill="var(--accent-2)">variable</text>
         <text x="535" y="160" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">the valve restricts</text>
         <text x="535" y="174" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.75">flow to the load directly</text>
+        </g>
       </svg>` } },
         { h: "Hydraulic separation",
           p: "Large systems often separate primary plant circuits from secondary distribution circuits, using devices like low-loss headers or plate heat exchangers.",
@@ -1004,8 +1043,13 @@
             "The IQ range of controllers is selected by input/output requirement and application, not a single one-size-fits-all box.",
             "Trend systems are designed for stand-alone resilience: if the network goes down, individual controllers keep running their own local strategy."
           ],
-          figure: { type: "svg", caption: "Each controller talks to the supervisor over the shared network, but reads its own sensors and drives its own actuators directly &mdash; which is exactly why a controller keeps running its local strategy even if the network goes down.", svg: `
-      <svg viewBox="0 0 680 300" role="img" aria-label="Diagram showing a BMS supervisor screen connected over a shared network to two DIN-rail controllers, each reading a wall sensor and driving a valve actuator locally" style="color:var(--text);">
+          figure: { type: "svg", caption: "Each controller talks to the supervisor over the shared network, but reads its own sensors and drives its own actuators directly &mdash; which is exactly why a controller keeps running its local strategy even if the network goes down. Tap a labelled part to read more.", hotspots: [
+            { key: "supervisor", label: "Supervisor", text: "The operator's window into the system, showing real-time graphics, alarms and trends. It doesn't replace the controllers, it just makes the whole system visible and usable." },
+            { key: "controller", label: "Controller", text: "Reads its own inputs, decides what the plant should be doing, and drives its own outputs directly, which is exactly why it keeps running its local strategy even if the network goes down." },
+            { key: "sensor", label: "Sensor", text: "Feeds a real-time reading, like temperature or pressure, straight into its own controller." },
+            { key: "actuator", label: "Actuator", text: "Turns the controller's decision into an actual physical change, like moving a valve or damper." }
+          ], svg: `
+      <svg viewBox="0 0 680 300" role="img" aria-label="Tappable diagram showing a BMS supervisor screen connected over a shared network to two DIN-rail controllers, each reading a wall sensor and driving a valve actuator locally" style="color:var(--text);">
         <defs>
           <marker id="bmsArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
@@ -1035,9 +1079,11 @@
           </symbol>
         </defs>
 
+        <g class="diagram-hotspot" data-key="supervisor">
         <use href="#supervisorIconNet" x="300" y="6" width="80" height="56"></use>
         <text x="340" y="76" text-anchor="middle" font-size="12" fill="currentColor">Supervisor</text>
         <text x="340" y="88" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">963 / IQVISION</text>
+        </g>
         <line x1="340" y1="62" x2="340" y2="100" stroke="currentColor" stroke-width="1.5"></line>
 
         <line x1="120" y1="100" x2="560" y2="100" stroke="var(--accent-2)" stroke-width="3"></line>
@@ -1046,34 +1092,46 @@
         <line x1="220" y1="100" x2="220" y2="130" stroke="currentColor" stroke-width="1.5"></line>
         <line x1="460" y1="100" x2="460" y2="130" stroke="currentColor" stroke-width="1.5"></line>
 
+        <g class="diagram-hotspot" data-key="controller">
         <use href="#ctrlBoxNet" x="175" y="130" width="90" height="32"></use>
         <text x="220" y="178" text-anchor="middle" font-size="12" fill="currentColor">Controller</text>
         <text x="220" y="190" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">Trend IQ</text>
+        </g>
+        <g class="diagram-hotspot" data-key="controller">
         <use href="#ctrlBoxNet" x="415" y="130" width="90" height="32"></use>
         <text x="460" y="178" text-anchor="middle" font-size="12" fill="currentColor">Controller</text>
         <text x="460" y="190" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">Trend IQ</text>
+        </g>
 
         <polyline points="180,220 180,195 205,195 205,162" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#bmsArrow)"></polyline>
         <text x="192" y="191" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">reads</text>
         <polyline points="235,162 235,195 300,195 300,220" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#bmsArrow)"></polyline>
         <text x="268" y="191" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">drives</text>
+        <g class="diagram-hotspot" data-key="sensor">
         <use href="#sensorIconNet" x="163" y="220" width="34" height="34"></use>
         <text x="180" y="270" text-anchor="middle" font-size="12" fill="currentColor">Sensor</text>
         <text x="180" y="282" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">input</text>
+        </g>
+        <g class="diagram-hotspot" data-key="actuator">
         <use href="#actuatorIconNet" x="283" y="220" width="34" height="34"></use>
         <text x="300" y="270" text-anchor="middle" font-size="12" fill="currentColor">Actuator</text>
         <text x="300" y="282" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">output</text>
+        </g>
 
         <polyline points="440,220 440,195 445,195 445,162" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#bmsArrow)"></polyline>
         <text x="432" y="191" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">reads</text>
         <polyline points="475,162 475,195 560,195 560,220" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#bmsArrow)"></polyline>
         <text x="528" y="191" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">drives</text>
+        <g class="diagram-hotspot" data-key="sensor">
         <use href="#sensorIconNet" x="423" y="220" width="34" height="34"></use>
         <text x="440" y="270" text-anchor="middle" font-size="12" fill="currentColor">Sensor</text>
         <text x="440" y="282" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">input</text>
+        </g>
+        <g class="diagram-hotspot" data-key="actuator">
         <use href="#actuatorIconNet" x="543" y="220" width="34" height="34"></use>
         <text x="560" y="270" text-anchor="middle" font-size="12" fill="currentColor">Actuator</text>
         <text x="560" y="282" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">output</text>
+        </g>
       </svg>` } },
         { h: "Controllers and applications",
           p: "An IQ controller reads its inputs, decides whether conditions are too hot, too cold or correct, and drives its outputs accordingly.",
@@ -1328,36 +1386,45 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
           ] },
         { h: "VAV in practice: a worked example",
           p: "A typical VAV installation has a single AHU supplying a ductwork distribution feeding numerous VAV terminal units, each serving its own zone. Because the AHU delivers air at one supply temperature, the only way to control temperature at each individual zone is to vary how much of that air reaches it &mdash; hence &ldquo;variable air volume.&rdquo;",
-          figure: { type: "svg", caption: "A VAV terminal modulates its damper between commissioned Vmin and Vmax limits to hit the zone&rsquo;s temperature setpoint &mdash; the zone sensor is what actually drives that damper position, closing the loop at the terminal itself, not at the AHU.", svg: `
-      <svg viewBox="0 0 640 200" role="img" aria-label="Diagram showing an AHU with a fan supplying ductwork to a VAV terminal with a damper actuator, which delivers air through a ceiling diffuser into a zone with a wall sensor feeding back to the VAV terminal" style="color:var(--text);">
+          figure: { type: "svg", caption: "A VAV terminal modulates its damper between commissioned Vmin and Vmax limits to hit the zone&rsquo;s temperature setpoint &mdash; the zone sensor is what actually drives that damper position, closing the loop at the terminal itself, not at the AHU. Tap a part to read more.", hotspots: [
+            { key: "ahu", label: "AHU", text: "The central air handling unit, delivering supply air at one single temperature to the whole ductwork run." },
+            { key: "vav", label: "VAV Terminal", text: "Modulates its own damper between commissioned Vmin and Vmax limits to control this specific zone, closing the control loop at the terminal itself rather than back at the AHU." },
+            { key: "zone", label: "Zone", text: "The room being served, with a ceiling diffuser and a wall sensor whose reading is what actually drives the VAV terminal's damper position." }
+          ], svg: `
+      <svg viewBox="0 0 640 200" role="img" aria-label="Tappable diagram showing an AHU with a fan supplying ductwork to a VAV terminal with a damper actuator, which delivers air through a ceiling diffuser into a zone with a wall sensor feeding back to the VAV terminal" style="color:var(--text);">
         <defs>
           <marker id="vavArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
           </marker>
         </defs>
 
-        <rect x="20" y="60" width="100" height="60" rx="6" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
+        <g class="diagram-hotspot" data-key="ahu">
+        <rect class="hotspot-body" x="20" y="60" width="100" height="60" rx="6" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"></rect>
         <circle cx="70" cy="90" r="17" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
         <path d="M70,90 L70,75 M70,90 L83,97 M70,90 L57,97" stroke="currentColor" stroke-width="1.4" fill="none"></path>
         <text x="70" y="132" text-anchor="middle" font-size="12" fill="currentColor">AHU</text>
+        </g>
 
         <rect x="120" y="83" width="98" height="14" rx="3" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"></rect>
         <line x1="120" y1="90" x2="216" y2="90" stroke="currentColor" stroke-width="1.5" marker-end="url(#vavArrow)"></line>
         <text x="170" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">supply air</text>
 
-        <rect x="222" y="55" width="140" height="70" rx="6" fill="none" stroke="var(--accent-2)" stroke-width="1.5"></rect>
+        <g class="diagram-hotspot" data-key="vav">
+        <rect class="hotspot-body" x="222" y="55" width="140" height="70" rx="6" fill="none" stroke="var(--accent-2)" stroke-width="1.5"></rect>
         <rect x="240" y="80" width="106" height="22" rx="11" fill="var(--surface-2)" stroke="var(--accent-2)" stroke-width="1.4"></rect>
         <line x1="248" y1="86" x2="278" y2="96" stroke="var(--accent-2)" stroke-width="2"></line>
         <rect x="280" y="60" width="24" height="16" rx="3" fill="var(--accent)" stroke="currentColor" stroke-width="1.1"></rect>
         <line x1="292" y1="76" x2="292" y2="80" stroke="currentColor" stroke-width="2"></line>
         <text x="292" y="118" text-anchor="middle" font-size="11" fill="var(--accent-2)">VAV Terminal</text>
         <text x="292" y="45" text-anchor="middle" font-size="9" fill="var(--accent-2)" opacity="0.8">damper: Vmin&ndash;Vmax</text>
+        </g>
 
         <rect x="362" y="83" width="78" height="14" rx="3" fill="var(--surface-2)" stroke="currentColor" stroke-width="1"></rect>
         <line x1="362" y1="90" x2="438" y2="90" stroke="var(--accent-2)" stroke-width="1.5" marker-end="url(#vavArrow)"></line>
         <text x="400" y="78" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">variable air</text>
 
-        <rect x="440" y="55" width="160" height="70" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+        <g class="diagram-hotspot" data-key="zone">
+        <rect class="hotspot-body" x="440" y="55" width="160" height="70" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
         <path d="M495,58 L525,58 L518,68 L502,68 Z" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.2"></path>
         <line x1="502" y1="68" x2="510" y2="90" stroke="currentColor" stroke-width="1" opacity="0.6"></line>
         <line x1="510" y1="68" x2="510" y2="92" stroke="currentColor" stroke-width="1" opacity="0.6"></line>
@@ -1366,6 +1433,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
         <circle cx="580" cy="90" r="3" fill="var(--accent-2)"></circle>
         <text x="520" y="112" text-anchor="middle" font-size="12" fill="currentColor">Zone</text>
         <text x="520" y="126" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">diffuser + room sensor</text>
+        </g>
 
         <polyline points="580,102 580,155 292,155 292,127" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#vavArrow)"></polyline>
         <text x="430" y="170" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">zone temperature drives the damper</text>
