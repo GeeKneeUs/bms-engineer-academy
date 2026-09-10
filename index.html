@@ -312,6 +312,14 @@
   .res-card h4 { font-size: 14.5px; margin-bottom: 4px; color: var(--text); }
   .res-card p { font-size: 12.5px; color: var(--text-muted); margin: 0; }
 
+  .spec-table-wrap { overflow-x: auto; margin-top: 14px; border: 1px solid var(--border); border-radius: var(--radius); }
+  .spec-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .spec-table th, .spec-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .spec-table th { background: var(--surface-2); color: var(--text); font-weight: 600; white-space: nowrap; }
+  .spec-table td { color: var(--text); }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table td.muted { color: var(--text-muted); font-style: italic; }
+
   .mobile-topbar { display: none; }
 
   @media (max-width: 900px) {
@@ -2946,6 +2954,44 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
       <div class="crumb">IO CONTROLS / RESOURCES</div>
       <div class="pagehead"><h1>Resources</h1></div>
       <p class="subtitle">Where the real external training happens, the original video/slide/manual material this site is built from, and the real Development Pathway tracker. Opens in a new tab &mdash; SharePoint links need you to be signed in.</p>
+
+      <section class="block">
+        <div class="sechead"><h3>Manufacturers &amp; what they call their controllers</h3></div>
+        <p>Different manufacturers use different names for what&rsquo;s fundamentally the same kind of hardware &mdash; a quick lookup, not a deep dive. Module 05 covers Trend IQ controllers in depth, Module 06 covers Distech/Niagara in depth.</p>
+        <div class="spec-table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Manufacturer</th><th>Platform</th><th>Controllers / JACEs called</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Distech Controls</td>
+                <td>Built on the Niagara framework</td>
+                <td><strong>EC-BOS</strong> (e.g. EC-BOS-8) &mdash; Distech&rsquo;s own name for its Niagara JACE; <strong>Eclypse range</strong> (VT3000 series) &mdash; Distech&rsquo;s newer native controller line</td>
+              </tr>
+              <tr>
+                <td>Trend Control Systems</td>
+                <td>Trend&rsquo;s own native IQ platform (not Niagara)</td>
+                <td><strong>IQ4 / IQ5</strong> native controllers, plus variants such as <strong>IQ3xcite</strong> and <strong>IQ Eco</strong></td>
+              </tr>
+              <tr>
+                <td>Cylon (now part of ABB)</td>
+                <td>Cylon&rsquo;s own Unitron platform</td>
+                <td><strong>UC32 series</strong> (UC32.16, UC32.24, UC32.netK) as native controllers; <strong>Aspect</strong> as Cylon&rsquo;s graphical front-end/supervisor software</td>
+              </tr>
+              <tr>
+                <td>Honeywell</td>
+                <td>Also built on the Niagara framework</td>
+                <td><strong>JACE 8000 / JACE 9000</strong> &mdash; Honeywell&rsquo;s own-branded variant is the <strong>HON-9000</strong>, same underlying Niagara JACE hardware family as Distech&rsquo;s EC-BOS, different name</td>
+              </tr>
+              <tr>
+                <td>CentraLine (Honeywell)</td>
+                <td>Honeywell&rsquo;s lighter-commercial BMS line, open protocols (Modbus/LON/M-Bus) rather than Niagara-based</td>
+                <td>CentraLine-branded controllers, manufactured by Honeywell</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <div class="res-grid">${cards}</div>
     `;
   }
