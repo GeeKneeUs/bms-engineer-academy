@@ -2669,6 +2669,9 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
   };
 
   const RESOURCES = [
+    { name: "Honeywell Buildings University", tag: "External training",
+      desc: "Where the real Trend e-learning and certification happens &mdash; the external partner referenced throughout the Pathway. This site is theory to prepare you for it, not a substitute for it.",
+      url: "https://myhoneywellbuildingsuniversity.com/" },
     { name: "Trainee Development Pathway Tracker (Excel)", tag: "Live tracker",
       desc: "The real task-by-task tracker behind the Pathway page on this site &mdash; all 172 tasks with status, owner and sign-off, including the 6 ongoing tasks that run throughout. This is where you and your mentor actually check items off.",
       url: "https://iocontrols.sharepoint.com/:x:/r/sites/Operations/_layouts/15/Doc.aspx?sourcedoc=%7B0866EF14-F077-4178-8F9C-20E9E80413A5%7D&file=Trainee%20Improver%20BMS%20Engineer%20-%20Development%20Pathway%20ver%20001.xlsx&action=default&mobileredirect=true" },
@@ -2860,7 +2863,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
 
       <section class="block" style="margin-top:34px;">
         <div class="sechead"><h3>Level 1</h3></div>
-        <p>The modules on this site are original IO Controls material &mdash; built to give you the theory before you meet it on site. Real certification still happens externally: industry training courses (BCM00&ndash;BCM13), Trend e-learning through Honeywell University, Niagara N4, and Distech Eclypse. See <a href="#" data-route="pathway">The Pathway</a> for how it all sequences over 18 months, and <a href="#" data-route="resources">Resources</a> for the original source material this site is built from, plus the real Development Pathway tracker.</p>
+        <p>The modules on this site are original IO Controls material &mdash; built to give you the theory before you meet it on site. Real certification still happens externally: industry training courses (BCM00&ndash;BCM13), Trend e-learning through Honeywell University, Niagara N4, and Distech Eclypse. See <a href="#" data-route="pathway">The Pathway</a> for how it all sequences over 18 months, and <a href="#" data-route="resources">Resources</a> for links to that real external training, the original source material this site is built from, and the real Development Pathway tracker.</p>
         ${MODULES[0].videoUrl ? videoCalloutHtml(MODULES[0].videoUrl) : ""}
         <div class="chiprow" style="margin-top:14px;">
           <button class="btn primary" data-route="module-m1">Then start with Module 00 &rarr;</button>
@@ -2942,7 +2945,7 @@ figure: { type: "img", src: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/
     return `
       <div class="crumb">IO CONTROLS / RESOURCES</div>
       <div class="pagehead"><h1>Resources</h1></div>
-      <p class="subtitle">The original video, slide and manual material this site is built from, plus the real Development Pathway tracker. Opens in a new tab &mdash; you&rsquo;ll need to be signed in to SharePoint.</p>
+      <p class="subtitle">Where the real external training happens, the original video/slide/manual material this site is built from, and the real Development Pathway tracker. Opens in a new tab &mdash; SharePoint links need you to be signed in.</p>
       <div class="res-grid">${cards}</div>
     `;
   }
